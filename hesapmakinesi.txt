@@ -1,0 +1,40 @@
+from replit import clear
+from art import logo
+
+def add(n1,n2):
+  return n1+n2
+def subtract(n1,n2):
+  return n1-n2
+def impact(n1,n2):
+  return n1*n2
+def divide(n1,n2):
+  return n1/n2
+
+dict={
+"+":add,
+"-":subtract,
+"*":impact,
+"/":divide
+}
+
+def calculator():
+  print(logo)
+  num1=float(input("Birinci sayı:"))
+  bitis=True
+  while bitis:
+    for i in dict:
+      print(i)
+    isaret=input("Hangi işlemi seçmek istiyorsunuz?\n")
+    hesaplama=dict[isaret]
+    num2=float(input("Sonraki sayı:"))
+    result=hesaplama(num1,num2)
+    print("{} {} {} = {}".format(num1,isaret,num2,result))
+    soru=input("İşleme devam etmek istiyor musunuz? y or n\n")
+    if soru=="y":
+      num1=result
+    else:
+      bitis=False
+      clear()
+      calculator()
+    
+calculator()
